@@ -16,6 +16,7 @@
 	<script src="./assets/js/Shader.js" type="text/javascript"></script>
 	<script src="./assets/js/GraphicsObject.js" type="text/javascript"></script>
 	<script src="./assets/js/Planet.js" type="text/javascript"></script>
+	<script src="./assets/js/Cloud.js" type="text/javascript"></script>
 	<script src="./assets/js/Sphere.js" type="text/javascript"></script>
 	<script src="./assets/js/config.js" type="text/javascript"></script>
 	<script src="./assets/js/KeyPressManager.js" type="text/javascript"></script>
@@ -48,6 +49,12 @@
 	#top-panel{
 		background:rgba(102, 138, 71, 0.06);
 		border-width:0px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 	
 	#top-panel input{
@@ -82,6 +89,12 @@
 	#bottom-panel{
 		background:rgba(51, 51, 51, 0.1);
 		border-width:0px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 	}
 	
 	#bottom-panel a:hover, #bottom-panel a:focus, #bottom-panel a:active{
@@ -124,6 +137,16 @@
 		
 		#top-panel .btn-purple{
 			width:100%;
+		}
+		
+		#bottom-panel .navbar-header, #bottom-panel .navbar-collapse{
+			width:100%;
+		}
+		
+		#bs-navbar-collapse-2, #bs-navbar-collapse-2 ul{
+			width:100%;
+			background:rgba(0,0,0,0.5);
+			margin:0px;
 		}
 		
 		.btn-select-element{
@@ -322,7 +345,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header pull-right">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-2">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -331,7 +354,7 @@
                 <a class="navbar-brand">Earth</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse-2">
 			
                 <ul class="nav navbar-nav text-center">
 					<li>

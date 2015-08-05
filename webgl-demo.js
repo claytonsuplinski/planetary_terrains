@@ -45,9 +45,11 @@ function start() {
 		
 		planet = new Planet("Earth");
 		
-		clouds = new Sphere(5.45, 50, 50);
-		clouds.set_texture("./assets/textures/clouds.png");
-		clouds.set_shader(basic_shader);
+		earth_clouds = new Cloud("Earth_Cloud");
+		
+		venus_clouds_bottom = new Sphere(6.5, 256, 128);
+		venus_clouds_bottom.set_texture("./assets/textures/venus_cloud.png");
+		venus_clouds_bottom.set_shader(basic_shader);
 
 		setInterval(drawScene, 15);
 	}
@@ -79,8 +81,17 @@ function drawScene() {
 	if(planet.name.toLowerCase() == "earth"){
 		gl.enable(gl.BLEND);
 		gl.enable(gl.CULL_FACE);
+		gl.cullFace(gl.BACK);
+		earth_clouds.draw();
 		gl.cullFace(gl.FRONT);
-		clouds.draw();
+		earth_clouds.draw();
+		gl.disable(gl.CULL_FACE);
+	}
+	else if(planet.name.toLowerCase() == "venus"){
+		gl.enable(gl.BLEND);
+		gl.enable(gl.CULL_FACE);
+		gl.cullFace(gl.FRONT);
+		venus_clouds_bottom.draw();
 		gl.disable(gl.CULL_FACE);
 	}
   

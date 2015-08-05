@@ -68,6 +68,7 @@ setInterval(function(){
 		if(TERRAIN.user.free_mode){
 			TERRAIN.user.rotation.x++;
 		}
+		alert(TERRAIN.user.position.z);
     }
 }, 60);
 
@@ -105,8 +106,8 @@ function init_mouse_controls(){
 				if(TERRAIN.user.position.z > 0){
 					TERRAIN.user.position.z = 0;
 				}
-				if(TERRAIN.user.position.z < -1000){
-					TERRAIN.user.position.z = -1000;
+				if(TERRAIN.user.position.z < -360){
+					TERRAIN.user.position.z = -360;
 				}
 			}
 			TERRAIN.mouse.x = event.pageX;
@@ -118,8 +119,8 @@ function init_mouse_controls(){
 			if(TERRAIN.user.position.z > 0){
 				TERRAIN.user.position.z = 0;
 			}
-			if(TERRAIN.user.position.z < -1000){
-				TERRAIN.user.position.z = -1000;
+			if(TERRAIN.user.position.z < -360){
+				TERRAIN.user.position.z = -360;
 			}
 		});
 		
