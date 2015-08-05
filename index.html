@@ -79,6 +79,15 @@
 		margin-top:-2px;
 	}
 	
+	#bottom-panel{
+		background:rgba(51, 51, 51, 0.1);
+		border-width:0px;
+	}
+	
+	#bottom-panel a:hover, #bottom-panel a:focus, #bottom-panel a:active{
+		color:#9D9D9D;
+	}
+	
 	.btn-update{
 		border-radius:100px !important;
 	}
@@ -142,7 +151,7 @@
 	}
 	
 	.group-name{
-		color:#555;
+		color:#666;
 		padding-left:5px;
 	}
 	
@@ -309,6 +318,42 @@
     <canvas id="glcanvas" width="640" height="480">
       Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
     </canvas>
-	
+	<nav id="bottom-panel" class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header pull-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Earth</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+			
+                <ul class="nav navbar-nav text-center">
+					<li>
+						<a id="planet-temp"></a>
+                    </li>
+					<li>
+						<a id="planet-radius"></a>
+                    </li>
+					<li>
+						<a id="planet-sun"></a>
+                    </li>
+					<li>
+						<a id="planet-highest"></a>
+                    </li>
+					<li>
+						<a id="planet-lowest"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>	
   </body>
 </html>

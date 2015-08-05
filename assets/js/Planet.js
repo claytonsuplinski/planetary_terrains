@@ -8,14 +8,26 @@ function Planet(name){
 	this.max = 0;
 	this.min = 999;
 	
+	this.load_data();
+	
 	this.load_terrain();
 	this.init_buffers();
 	
 	this.set_texture("./assets/textures/"+this.name.toLowerCase()+".png");
 	this.set_shader(basic_shader);
+	$("#bottom-panel .navbar-brand").html(this.name);
 };
 
 Planet.prototype = new GraphicsObject();
+
+Planet.prototype.load_data = function(){
+	var data = TERRAIN.data[this.name.toLowerCase()];
+	$("#planet-temp").html("<span class='group-name'>Temp</span> " + data.temp + "&deg;F");
+	$("#planet-radius").html("<span class='group-name'>Radius</span> " + data.radius + " km");
+	$("#planet-sun").html("<span class='group-name'>Sun</span> " + data.sun + "M mi");
+	$("#planet-highest").html("<span class='group-name'>High</span> " + data.highest + " m");
+	$("#planet-lowest").html("<span class='group-name'>Low</span> " + data.lowest + " m");
+}
 
 Planet.prototype.load_terrain = function(){
 	this.terrain_points = [];
