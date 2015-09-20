@@ -100,7 +100,6 @@ function init_mouse_controls(){
 			}
 			TERRAIN.mouse.x = touch.pageX;
 			TERRAIN.mouse.y = touch.pageY;
-			alert('ehre');
 		})
 		.bind('touchend', function(event){
 			var touch = event.originalEvent.touches[0];
