@@ -106,6 +106,17 @@ function init_mouse_controls(){
 			var touch = event.originalEvent.touches[0];
 			TERRAIN.mouse.left_down = false;
 		})
+		.bind('gesturechange', function(event){
+			event.preventDefault();
+			
+			TERRAIN.user.position.z -= 4*parseInt(event.originalEvent.scale);
+			if(TERRAIN.user.position.z > 0){
+				TERRAIN.user.position.z = 0;
+			}
+			if(TERRAIN.user.position.z < -360){
+				TERRAIN.user.position.z = -360;
+			}
+		})
 		.mousedown(function (event){
 			TERRAIN.mouse.x = event.pageX;
 			TERRAIN.mouse.y = event.pageY;
