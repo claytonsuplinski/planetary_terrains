@@ -112,7 +112,7 @@ function init_mouse_controls(){
 			event.preventDefault();
 			
 			TERRAIN.mouse.right_down = true;
-			var zoom_factor = parseInt(event.originalEvent.scale);
+			var zoom_factor = parseFloat(event.originalEvent.scale);
 			if(zoom_factor > 1){
 				TERRAIN.user.position.z += (zoom_factor - 1);
 			}
