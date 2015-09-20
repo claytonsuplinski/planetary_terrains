@@ -83,8 +83,8 @@ function init_mouse_controls(){
 		.bind('touchmove', function(event){
 			var touch = event.originalEvent.touches[0];
 			if(TERRAIN.mouse.left_down){
-				TERRAIN.user.rotation.y += (touch.pageX - TERRAIN.mouse.x);
-				TERRAIN.user.rotation.x += (touch.pageY - TERRAIN.mouse.y)/2;
+				TERRAIN.user.rotation.y += (parseFloat(touch.pageX) - TERRAIN.mouse.x);
+				TERRAIN.user.rotation.x += (parseFloat(touch.pageY) - TERRAIN.mouse.y)/2;
 				while(TERRAIN.user.rotation.y < 0){
 					TERRAIN.user.rotation.y += 360;
 				}
@@ -100,6 +100,7 @@ function init_mouse_controls(){
 			}
 			TERRAIN.mouse.x = touch.pageX;
 			TERRAIN.mouse.y = touch.pageY;
+			alert('ehre');
 		})
 		.bind('touchend', function(event){
 			var touch = event.originalEvent.touches[0];
