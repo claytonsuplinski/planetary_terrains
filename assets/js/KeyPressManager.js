@@ -109,7 +109,13 @@ function init_mouse_controls(){
 		.bind('gesturechange', function(event){
 			event.preventDefault();
 			
-			TERRAIN.user.position.z -= 4*parseInt(event.originalEvent.scale);
+			var zoom_factor = parseInt(event.originalEvent.scale);
+			if(zoom_factor > 1){
+				TERRAIN.user.position.z += (zoom_factor - 1);
+			}
+			else{
+				TERRAIN.user.position.z -= (1 - zoom_factor);
+			}
 			if(TERRAIN.user.position.z > 0){
 				TERRAIN.user.position.z = 0;
 			}
