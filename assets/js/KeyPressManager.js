@@ -78,12 +78,14 @@ function init_mouse_controls(){
 			var touch = event.originalEvent.touches[0];
 			TERRAIN.mouse.x = touch.pageX;
 			TERRAIN.mouse.y = touch.pageY;
-			TERRAIN.mouse.left_down = true;
+			if(!TERRAIN.mouse.right_down){
+				TERRAIN.mouse.left_down = true;
+			}
 		})
 		.bind('touchmove', function(event){
 			event.preventDefault();
 			var touch = event.originalEvent.touches[0];
-			if(TERRAIN.mouse.left_down){
+			if(TERRAIN.mouse.left_down && !TERRAIN.mouse.right_down){
 				TERRAIN.user.rotation.y += (parseFloat(touch.pageX) - TERRAIN.mouse.x);
 				TERRAIN.user.rotation.x += (parseFloat(touch.pageY) - TERRAIN.mouse.y)/2;
 				while(TERRAIN.user.rotation.y < 0){
@@ -109,6 +111,7 @@ function init_mouse_controls(){
 		.bind('gesturechange', function(event){
 			event.preventDefault();
 			
+			TERRAIN.mouse.right_down = true;
 			var zoom_factor = parseInt(event.originalEvent.scale);
 			if(zoom_factor > 1){
 				TERRAIN.user.position.z += (zoom_factor - 1);
@@ -122,6 +125,9 @@ function init_mouse_controls(){
 			if(TERRAIN.user.position.z < -360){
 				TERRAIN.user.position.z = -360;
 			}
+		})
+		.bind('gestureend', function(event){
+			TERRAIN.mouse.right_down = false;
 		})
 		.mousedown(function (event){
 			TERRAIN.mouse.x = event.pageX;
