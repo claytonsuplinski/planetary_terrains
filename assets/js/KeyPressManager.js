@@ -81,6 +81,7 @@ function init_mouse_controls(){
 			TERRAIN.mouse.left_down = true;
 		})
 		.bind('touchmove', function(event){
+			event.preventDefault();
 			var touch = event.originalEvent.touches[0];
 			if(TERRAIN.mouse.left_down){
 				TERRAIN.user.rotation.y += (parseFloat(touch.pageX) - TERRAIN.mouse.x);
