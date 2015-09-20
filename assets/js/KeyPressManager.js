@@ -98,8 +98,8 @@ function init_mouse_controls(){
 					TERRAIN.user.rotation.x = -90;
 				}
 			}
-			TERRAIN.mouse.x = event.pageX;
-			TERRAIN.mouse.y = event.pageY;
+			TERRAIN.mouse.x = touch.pageX;
+			TERRAIN.mouse.y = touch.pageY;
 		})
 		.bind('touchend', function(event){
 			var touch = event.originalEvent.touches[0];
